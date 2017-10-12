@@ -2,6 +2,7 @@ function onReady() {
   const addToDoForm = document.getElementById('addToDoForm');
   const newToDoText = document.getElementById('newToDoText');
   const toDoList = document.getElementById('toDoList');
+  const clearToDoForm = document.getElementById('clearToDoForm');
 
   addToDoForm.addEventListener('submit', () => {
     event.preventDefault();
@@ -29,6 +30,24 @@ function onReady() {
 
     //empty the input
     newToDoText.value = '';
+  });
+
+  clearToDoForm.addEventListener('submit', () => {
+
+    event.preventDefault();
+// Strange element at position 0
+    for (var i = 1; i < toDoList.childNodes.length; i++){
+      console.log(i);
+      var currentList = toDoList.childNodes;
+      var li = currentList[i];
+      console.log(li.childNodes.length);
+      var checkbox = li.childNodes[1];
+      console.log(checkbox.checked);
+      if (checkbox.checked === true){
+        toDoList.removeChild(currentList[i]);
+        i--
+      }
+    }
   });
 }
 
