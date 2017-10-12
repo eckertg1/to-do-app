@@ -35,12 +35,12 @@ function onReady() {
   clearToDoForm.addEventListener('submit', () => {
 
     event.preventDefault();
-// Strange element at position 0
-    for (var i = 1; i < toDoList.childNodes.length; i++){
+
+    for (var i = 0; i < toDoList.children.length; i++){
       console.log(i);
-      var currentList = toDoList.childNodes;
+      var currentList = toDoList.children;
       var li = currentList[i];
-      console.log(li.childNodes.length);
+      console.log(li.children.length);
       var checkbox = li.childNodes[1];
       console.log(checkbox.checked);
       if (checkbox.checked === true){
